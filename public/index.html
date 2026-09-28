@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>个人智能助理 Agent · 演示</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">AI</div>
+        <div class="brand-text">
+          <h1>个人智能助理 Agent</h1>
+          <p>本地优先 · Gateway + Agent Runtime · Web 演示</p>
+        </div>
+      </div>
+      <div class="status" id="status">
+        <div class="pill" id="pill-conn"><span class="dot"></span><span class="pv">连接中…</span></div>
+        <div class="pill"><span class="pk">Model</span><span class="pv" id="pill-model">—</span></div>
+        <div class="pill"><span class="pk">Session</span><span class="pv" id="pill-session">—</span></div>
+        <div class="pill"><span class="pk">Tools</span><span class="pv" id="pill-tools">—</span></div>
+        <div class="pill"><span class="pk">Skills</span><span class="pv" id="pill-skills">—</span></div>
+        <div class="pill"><span class="pk">MCP</span><span class="pv" id="pill-mcp">—</span></div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="chat">
+        <div class="cap-bar" id="cap-bar">
+          <span class="cap-group"><span class="cap-label">Skills</span><span class="cap-chips" id="cap-skills"></span></span>
+          <span class="cap-group"><span class="cap-label">MCP</span><span class="cap-chips" id="cap-mcp"></span></span>
+        </div>
+        <div class="messages" id="messages">
+          <div class="welcome" id="welcome">
+            <h2>你好，我是你的本地智能助理</h2>
+            <p>我会把事做完：调用工具、检索记忆、派生子代理，危险操作先向你审批。</p>
+            <div class="cap-grid">
+              <div class="cap"><b>四阶段思维链</b><span>思考 → 推理 → 执行 → 检查，全程可视化</span></div>
+              <div class="cap"><b>能力自动发现</b><span>问题缺能力时联网检索并自动加载 Skill / MCP</span></div>
+              <div class="cap"><b>工具调用</b><span>文件 / Shell / 搜索 / 日历 · 危险操作 HITL 审批</span></div>
+              <div class="cap"><b>分层记忆</b><span>精选核心 + 情景记忆，跨会话召回</span></div>
+              <div class="cap"><b>长任务规划</b><span>Goal + TaskFlow，多步拆解与恢复</span></div>
+              <div class="cap"><b>多智能体</b><span>sessions_spawn 并行子代理</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="suggestions" id="suggestions"></div>
+
+        <form class="composer" id="composer">
+          <textarea id="input" rows="1" placeholder="说点什么…（Enter 发送，Shift+Enter 换行）"></textarea>
+          <button type="submit" id="send" title="发送">发送</button>
+        </form>
+      </section>
+
+      <aside class="trace-panel">
+        <div class="trace-head">
+          <span>Runtime 事件流</span>
+          <div class="trace-actions">
+            <span class="trace-count" id="trace-count">0</span>
+            <button id="trace-clear" title="清空">清空</button>
+          </div>
+        </div>
+        <div class="trace" id="trace"></div>
+      </aside>
+    </main>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>

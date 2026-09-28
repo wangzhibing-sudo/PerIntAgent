@@ -1,0 +1,17 @@
+{
+  "name": "personal-assistant-agent",
+  "version": "1.0.0",
+  "description": "本地优先的个人智能助理 Agent · Web 演示 (Gateway + Agent Runtime)",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "ws": "^8.18.0"
+  }
+}
